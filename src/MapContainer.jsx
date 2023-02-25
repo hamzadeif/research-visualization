@@ -10,40 +10,41 @@ export const MapContainer = () => {
 
     const locations = [
         {
-          name: "Clue #1: Hat found",
+          clue_number: 1,
+          item: "hat",
+          team: "Team H",
+          date: "04-03-2022",
+          time: "3:15pm",
           location: { 
             lat: 35.2676,
             lng: -120.6756 
           },
+          initials: "H.D"
         },
         {
-          name: "Location 2",
+          clue_number: 2,
+          item: "shirt",
+          team: "Team H",
+          date: "04-03-2002",
+          time: "3:15pm",
           location: { 
             lat: 39.2676,
-            lng: -180.6756
+            lng: -180.6756 
           },
+          initials: "H.D"
         },
         {
-          name: "Location 3",
+          clue_number: 3,
+          item: "shirt",
+          team: "Team H",
+          date: "04-03-2002",
+          time: "3:15pm",
           location: { 
             lat: 41.3773,
             lng: 52.1585
           },
+          initials: "H.D"
         },
-        {
-          name: "Location 4",
-          location: { 
-            lat: 41.3797,
-            lng: 92.1682
-          },
-        },
-        {
-          name: "Location 5",
-          location: { 
-            lat: 41.4055,
-            lng: 2.1915
-          },
-        }
       ];
   
   const mapStyles = {        
@@ -79,7 +80,14 @@ export const MapContainer = () => {
               clickable={true}
               onCloseClick={() => setSelected({})}
             >
-              <p style={{color: 'red'}}>{selected.name}</p>
+              <p style={{color: 'red'}}>Clue Number: {selected.clue_number} <br/> 
+                                          Item: {selected.item} <br/> 
+                                          Team: {selected.team} <br/> 
+                                          Date: {selected.date} <br/> 
+                                          Time: {selected.time} <br/> 
+                                          Location: {selected.location.lat}, {selected.location.lng} <br/> 
+                                          Initials: {selected.initials}
+                                          </p>
             </InfoWindow>
             )
          }
