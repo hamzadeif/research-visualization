@@ -1,15 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useReducer } from "react";
 import { GoogleMap, LoadScript, MarkerF, InfoWindow } from '@react-google-maps/api';
+import { useNavigate, useParams } from "react-router-dom";
+// import {
+//   Button,
+//   Card,
+//   CardBody,
+//   Collapse,
+//   FormGroup,
+//   Input,
+//   InputGroup,
+//   Label,
+//   CardTitle,
+//   Table,
+// } from "reactstrap";
+// import formReducer from "../reducers/FormReducer";
+// import firebaseConfig from '../src/config/Firebase-config';
 
-var data;
-
-async function fetchData() {
-  const response = await fetch('https://data.ny.gov/resource/u6hu-h7p5.json');
-  data = await response.json();
-  console.log(data[0])
-}
+// import { useAuth } from "../../../contexts/AuthContext";
+// import Submission from "./Submission";
+// import fillForm from "../utils/FillForm";
+// import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
 
+// import { db } from "./Firebase-config"; 
+// import { collection, addDoc, doc, setDoc } from "firebase/firestore";
+
+// const FormParser = ({}) => {
+//   const params = useParams();
+//   const collectionRef = collection(db, "incidents", params.incidentId, "forms");
+//   console.log(params.incidentId)
+//     // navigate(`/incidents/${params.incidentId}`);
+//   };
+
+
+import { FormParser } from "./FormParser"; // import the FormParser function
 
 export const MapContainer = () => {
     const [ selected, setSelected ] = useState({});
@@ -18,31 +42,7 @@ export const MapContainer = () => {
         setSelected(item);
     }
 
-    // let x;
-    // fetchData().then(() => {
-    //   x = data[0];
-    //   console.log("inside: ", x)
-    // });
-    
-    // console.log("outside: ", x)
-
-    // let data;
-    // const request = new XMLHttpRequest();
-    // request.open('GET', 'https://data.ny.gov/resource/u6hu-h7p5.json');
-    // request.onload = function() {
-    //   if (request.status === 200) {
-    //     data = JSON.parse(request.responseText);
-    //     console.log("LOOK HERE: ", data[0]);
-    //   } else {
-    //     console.error('Error fetching data');
-    //   }
-    // };
-    // request.send();
-    fetchData()
-    console.log("data: ", data);
-    // let x = data;
-    // console.log("x: ", x);
-
+    FormParser({ onSelect }); // call FormParser function
 
     const locations = [
         {
