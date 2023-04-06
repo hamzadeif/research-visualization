@@ -27,8 +27,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 // const FormParser = ({}) => {
 //   const params = useParams();
-//   const collectionRef = collection(db, "incidents", params.incidentId, "forms");
-//   console.log(params.incidentId)
+//   //const collectionRef = collection(db, "incidents", params.incidentId, "forms");
+//   console.log("LOOK:", params.incidentId)
 //     // navigate(`/incidents/${params.incidentId}`);
 //   };
 

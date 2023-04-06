@@ -5,9 +5,10 @@ import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 
 
 export const FormParser = ({ onSelect }) => {
-  const params = useParams();
-  const collectionRef = collection(db, 'incidents', params.incidentId, 'forms');
-  console.log("look here:", params.incidentId);
+  //const params = useParams();
+  //const collectionRef = collection(db, 'incidents', params.incidentId, 'forms');
+  const collectionRef = collection(db, 'incidents', '5dfc8TW4dAvTMdUWbGZV', 'forms');
+  console.log("look here:", collectionRef);
 //   onSelect('some item'); // call onSelect function
 };
 
